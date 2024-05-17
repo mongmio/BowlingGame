@@ -36,6 +36,20 @@ TEST_F(BowlingGameTest, RollFivePoint5Times) {
 	game.roll(5);
 	game.roll(5);
 	game.roll(5);
+	game.roll(5);
+	game.roll(5);
 
-	EXPECT_EQ(20, game.score());
+	EXPECT_EQ(35, game.score());
+}
+
+TEST_F(BowlingGameTest, RollFivePoint7Times) {
+	game.roll(5);
+	game.roll(5);
+	game.roll(5);
+	game.roll(5);
+	game.roll(5);
+	game.roll(5);
+	game.roll(5);
+
+	EXPECT_EQ(50, game.score());
 }
