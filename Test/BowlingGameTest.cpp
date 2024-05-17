@@ -5,9 +5,9 @@ class BowlingGameTest : public testing::Test
 {
 protected:
 	BowlingGame game{};
-	void allSamePointRoll(int point)
+	void rollMultipleSamePoint(int point, int times)
 	{
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < times; i++)
 		{
 			game.roll(point);
 		}
@@ -15,41 +15,26 @@ protected:
 };
 
 TEST_F(BowlingGameTest, AllZeroPointGame) {
-	allSamePointRoll(0);
+	rollMultipleSamePoint(0, 20);
 	EXPECT_EQ(0, game.score());
 }
 
 TEST_F(BowlingGameTest, AllOnePointGame) {
-	allSamePointRoll(1);
+	rollMultipleSamePoint(1, 20);
 	EXPECT_EQ(20, game.score());
 }
 
 TEST_F(BowlingGameTest, RollFivePoint3Times) {
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-
+	rollMultipleSamePoint(5, 3);
 	EXPECT_EQ(20, game.score());
 }
 
 TEST_F(BowlingGameTest, RollFivePoint5Times) {
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-
+	rollMultipleSamePoint(5, 5);
 	EXPECT_EQ(35, game.score());
 }
 
 TEST_F(BowlingGameTest, RollFivePoint7Times) {
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-	game.roll(5);
-
+	rollMultipleSamePoint(5, 7);
 	EXPECT_EQ(50, game.score());
 }
