@@ -11,20 +11,14 @@ public:
 	{
 		points.push_back(point);
 		auto numOfPoints = points.size();
-		if (numOfPoints == 3)
+		if (numOfPoints > 2 && numOfPoints % 2 == 1)
 		{
-			if (points.at(2) + points.at(1) == 10)
+			if (points.at(numOfPoints - 1) + points.at(numOfPoints - 2) == 10)
 			{
 				totalScore += point;
 			}
 		}
-		if (numOfPoints == 5)
-		{
-			if (points.at(4) + points.at(3) == 10)
-			{
-				totalScore += point;
-			}
-		}
+
 		totalScore += point;
 	}
 	int score(void)
