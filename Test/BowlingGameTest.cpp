@@ -24,3 +24,10 @@ TEST_F(BowlingGameTest, AllOnePointGame) {
 	EXPECT_EQ(20, game.score());
 }
 
+TEST_F(BowlingGameTest, RollFivePoint3Times) {
+	game.roll(5);
+	game.roll(5);
+	game.roll(5);
+
+	EXPECT_EQ(20, game.score());
+}
