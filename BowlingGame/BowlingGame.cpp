@@ -5,7 +5,7 @@ public:
 	~BowlingGame();
 	void roll(int point)
 	{
-		totalScore = point;
+		totalScore += point;
 	}
 	int score(void)
 	{
