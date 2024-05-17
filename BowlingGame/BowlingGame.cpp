@@ -10,30 +10,44 @@ public:
 	void roll(int point)
 	{
 		points.push_back(point);
-		totalScore += point;
-		auto numOfPoints = points.size();
-		if (numOfPoints < 2) return;
-
-		if (points.at(numOfPoints - 1) == 10)
+		if (point == 10)
 		{
-			totalScore += point;
-		}
-		if (numOfPoints % 2 == 1)
-		{
-			if (points.at(numOfPoints - 1) + points.at(numOfPoints - 2) == 10)
-			{
-				totalScore += point;
-			}
+			points.push_back(0);
 		}
 
 	}
 	int score(void)
 	{
+		int totalScore{};
+		int previos_fist = 0;
+		int previos_second = 0;
+		bool isFirst = true;
+		for (auto point : points)
+		{
+			totalScore += point;
+			if (isFirst == true)
+			{
+				if (previos_fist + previos_second == 10)
+				{
+					totalScore += point;
+				}
+				previos_fist = point;
+				isFirst = false;
+			}
+			else
+			{
+				if (previos_fist == 10)
+				{
+					totalScore += point;
+				}
+				previos_second = point;
+				isFirst = true;
+			}
+		}
 		return totalScore;
 	}
 private:
 	vector<int> points{};
-	int totalScore{};
 };
 
 BowlingGame::BowlingGame()

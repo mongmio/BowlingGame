@@ -48,3 +48,13 @@ TEST_F(BowlingGameTest, RollTenPoint3Times) {
 	rollMultipleSamePoint(10, 3);
 	EXPECT_EQ(50, game.score());
 }
+
+TEST_F(BowlingGameTest, SpareAndStrike) {
+	game.roll(7);
+	game.roll(3);
+	game.roll(10);
+	game.roll(7);
+	game.roll(3);
+	game.roll(10);
+	EXPECT_EQ(67, game.score());
+}
