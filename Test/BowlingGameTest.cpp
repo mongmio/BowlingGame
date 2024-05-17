@@ -31,3 +31,11 @@ TEST_F(BowlingGameTest, RollFivePoint3Times) {
 
 	EXPECT_EQ(20, game.score());
 }
+
+TEST_F(BowlingGameTest, RollFivePoint5Times) {
+	game.roll(5);
+	game.roll(5);
+	game.roll(5);
+
+	EXPECT_EQ(20, game.score());
+}

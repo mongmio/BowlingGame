@@ -18,6 +18,13 @@ public:
 				totalScore += point;
 			}
 		}
+		if (numOfPoints == 5)
+		{
+			if (points.at(4) + points.at(3) == 10)
+			{
+				totalScore += point;
+			}
+		}
 		totalScore += point;
 	}
 	int score(void)
