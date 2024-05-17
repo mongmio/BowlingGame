@@ -10,12 +10,15 @@ public:
 	void roll(int point)
 	{
 		points.push_back(point);
+		totalScore += point;
 		auto numOfPoints = points.size();
-		if (numOfPoints > 1 && points.at(numOfPoints - 1) == 10)
+		if (numOfPoints < 2) return;
+
+		if (points.at(numOfPoints - 1) == 10)
 		{
 			totalScore += point;
 		}
-		if (numOfPoints > 2 && numOfPoints % 2 == 1)
+		if (numOfPoints % 2 == 1)
 		{
 			if (points.at(numOfPoints - 1) + points.at(numOfPoints - 2) == 10)
 			{
@@ -23,7 +26,6 @@ public:
 			}
 		}
 
-		totalScore += point;
 	}
 	int score(void)
 	{
