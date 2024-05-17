@@ -38,3 +38,13 @@ TEST_F(BowlingGameTest, RollFivePoint7Times) {
 	rollMultipleSamePoint(5, 7);
 	EXPECT_EQ(50, game.score());
 }
+
+TEST_F(BowlingGameTest, RollTenPoint2Times) {
+	rollMultipleSamePoint(10, 2);
+	EXPECT_EQ(30, game.score());
+}
+
+TEST_F(BowlingGameTest, RollTenPoint3Times) {
+	rollMultipleSamePoint(10, 3);
+	EXPECT_EQ(50, game.score());
+}

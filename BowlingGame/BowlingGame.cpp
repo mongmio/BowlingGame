@@ -11,6 +11,10 @@ public:
 	{
 		points.push_back(point);
 		auto numOfPoints = points.size();
+		if (numOfPoints > 1 && points.at(numOfPoints - 1) == 10)
+		{
+			totalScore += point;
+		}
 		if (numOfPoints > 2 && numOfPoints % 2 == 1)
 		{
 			if (points.at(numOfPoints - 1) + points.at(numOfPoints - 2) == 10)
